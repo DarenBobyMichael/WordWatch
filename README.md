@@ -1,4 +1,4 @@
-#WordWatch
+# WordWatch
 
 WordWatch is a hate speech and offensive language detection web application currently under development. The purpose of this application is to provide a tool that can analyze text content and identify instances of hate speech and inappropriate language, thereby promoting a safer and more inclusive online environment.
 Features
@@ -9,12 +9,12 @@ Features
 
     Customizable Filter: WordWatch allows users to customize the sensitivity of the detection to suit their specific needs and preferences.
 
-#Work in Progress
+# Work in Progress
 
 Please note that WordWatch is currently under active development. The application is not yet considered stable and may undergo significant changes as new features are implemented and improvements are made. We appreciate your understanding and patience as we strive to deliver a robust and reliable solution.
 Getting Started
 
-#To get started with WordWatch, follow these steps:
+# To get started with WordWatch, follow these steps:
 
     Clone the repository: git clone https://github.com/your-username/wordwatch.git
     Install the necessary dependencies: npm install
