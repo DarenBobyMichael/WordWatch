@@ -1,3 +1,4 @@
+
 import openai
 
 f = open('key.txt','w')
