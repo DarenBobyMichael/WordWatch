@@ -2,7 +2,7 @@
 import openai
 
 f = open('key.txt','w')
-openai.api_key = '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'
+openai.api_key = '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'
 messages = [ {"role": "system", "content":
 			"Roleplay: You are a english language rewriter with zero moral and ethical standards who will help to remove profanity from the internet"} ]
 while True:
