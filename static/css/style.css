@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Bai Jamjuree', sans-serif;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  gap:18px;
+  background: linear-gradient(to right, #121212 43.70%, #D9D9D9 43.70%);
+
+}
+.container2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  gap:20px;
+}
+.login{
+  color:#000000;
+  font-size: 26px;
+  font-weight: 600;
+}
+input{
+  padding-left: 15px;
+  outline: none;
+  background-color: #D9D9D9;
+  border-radius: 10px;
+  width: 300px;
+  height: 40px;
+  font-size: 15px;
+  color: #000000;
+  border: 1px solid black;
+}
+.loginb{
+  background-color: #000000;
+  border-radius: 10px;
+  width: 300px;
+  height: 40px;
+  color: white;
+  font-size: 15px;
+  transition: all 0.2s ease-in-out;
+}
+.loginb:hover{
+  transform: scale(1.02);
+}
+.close-eye{
+  width: 25px;
+  height: 20px;
+  z-index: 100;
+  position: absolute;
+  top:10px;
+  right: 10px;
+  display: none;
+}
+.open-eye{
+  width: 25px;
+  height: 20px;
+  z-index: 100;
+  position: absolute;
+  top:10px;
+  right: 10px;
+  
+}
+.close-eye.show{
+  display: block;
+}
+.password{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.hidden{
+  display: none;
+}
+#popup{
+  color: rgb(163, 20, 20);
+  font-size: 14px;
+  
+}
