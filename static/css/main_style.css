@@ -160,16 +160,18 @@
 
 }
 .box{
-    width: 1100px;
+    width: 1000px;
     height:300px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-left: 20px;
     position: relative;
     color:black;
     outline: none;
     resize: none;
-    padding: 20px;
+    margin-left: 100px;
     transition: all 0.4s ease-in-out;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 .box input[type="text"]::placeholder {
@@ -180,14 +182,14 @@
 .buttons{
     position: absolute;
     /*right: 135px;*/
-    right: 400px;
+    right: 120px;
     margin-bottom: 20px;
     display: flex;
     gap:30px;
-    
+    transition: all 0.4s ease-in-out;
 }
 button{
-    width: 180px;
+    width: 160px;
     border-radius:10px !important;
     height: 40px;
     border: none;
@@ -212,7 +214,7 @@ button{
 }
 .output-box{
     background-color: #121111;
-    width: 1100px;
+    width: 1000px;
     height:300px;
     border-radius: 10px;
     position: relative;
@@ -223,6 +225,7 @@ button{
     padding:20px;
     text-indent: 10px;
     text-align: left;
+    margin-left:100px;
 }
 .rightsidebar.show{
     display: block;
@@ -236,13 +239,34 @@ button{
     left: 200px;
     width: calc(100% - 200px);
     .box{
-        width: 1000px !important;
+        width: 900px !important;
     }
     .output-box{
-        width: 1000px !important;
+        width: 900px !important;
     }
     .themain{
         padding: 50px;
     }
+    .buttons{
+        right: 20px;
+    }
 }
 /* Main page CSS*/
+@media(max-width:700px){
+    .themain{
+        min-width: 20vh;
+        padding: 30px;
+    }
+    .buttons{
+    position: absolute;
+    /*right: 135px;*/
+    right: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    gap:30px;
+    
+    }
+    button{
+        width: 100px;
+    }
+}
