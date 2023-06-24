@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WordWatch</title>
+    <title>WordWatch - Login</title>
     <link rel="stylesheet" href="../static/css/style.css" />
     <link
       rel="stylesheet"
@@ -18,30 +18,41 @@
   <body>
     <div class="container">
       <div class="container1">
-        <img src="../images/Word.Watch.png" alt="logo" />
+        <img src="../static/images/Word.Watch.png" alt="logo" />
       </div>
       <div class="container2">
         <div class="login">Login</div>
-        <input
-          type="email"
-          id="emailInput"
-          name="email"
-          placeholder="Email address"
-        />
-        <div class="password">
+        <form action="/login">
           <input
-            type="password"
-            id="passwordInput"
-            name="password"
-            placeholder="Password"
+            type="email"
+            id="emailInput"
+            name="email"
+            placeholder="Email address"
           />
-          <img class="close-eye" src="../images/eyeclose.png" alt="eye" />
-          <img class="open-eye" src="../images/open_eye.png" alt="eye" />
-        </div>
-        <button class="loginb">Login</button>
-        <div id="popup" class="hidden">Please enter the details!</div>
+          <div class="password">
+            <input
+              type="password"
+              id="passwordInput"
+              name="password"
+              placeholder="Password"
+            />
+            <img
+              class="close-eye"
+              src="../static/images/eyeclose.png"
+              alt="eye"
+            />
+            <img
+              class="open-eye"
+              src="../static/images/open_eye.png"
+              alt="eye"
+            />
+          </div>
+          <button class="loginb">Login</button>
+        </form>
+
+        <div id="popup" class="hidden">Please enter the details</div>
       </div>
     </div>
-    <script src="../script/login_script.js"></script>
+    <script src="../static/script/login_script.js"></script>
   </body>
 </html>
