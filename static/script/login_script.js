@@ -21,7 +21,7 @@ loginButton.addEventListener("click", function() {
         popup.classList.remove("hidden");
   }
   else{
-    window.location.href = "../templates/main_page.html";
+    window.location.href = "main_page";
   }
   
 });

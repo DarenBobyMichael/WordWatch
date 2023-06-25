@@ -20,5 +20,5 @@ document.addEventListener("click", (event) => {
 var logoutButton = document.querySelector("#logout"); // Get the first element with the class "loginb"
 logoutButton.addEventListener("click", function() {
   console.log("aaa");
-   window.location.href = "../templates/index.html";
+   window.location.href = "login";
 });

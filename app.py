@@ -1,30 +1,67 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session,url_for
 import filtering_GPT
-from firebase_admin import auth
+import sqlite3
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'
 
-# @app.route('/', methods=['GET', 'POST'])
-# def login():
-#     email = request.form['email']
-#     password = request.form['password']
 
-#     try:
-#         user = auth.get_user_by_email(email)
-#         auth.sign_in_with_email_and_password(email, password)
-#         return redirect('/main_page')
-#     except auth.AuthError:
-#         return render_template('index.html', message='Invalid credentials.')
+conn = sqlite3.connect('users.db', check_same_thread=False)
+c = conn.cursor()
+conn.commit()
 
+
+@app.route('/')
+def home():
+    if 'username' in session:
+        return redirect('/main_page')
+    else:
+        return redirect('/login')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        
+        print(email)
+        print(password)
+        # Check if the username and password match the database
+        c.execute("SELECT * FROM users WHERE email = ? AND password = ?", (email, password))
+        user = c.fetchone()
+        
+        if user is not None:
+            session['email'] = email
+            return redirect('/main_page')
+        else:
+            error = 'Invalid email or password. Please try again.'
+            return render_template('login.html', error=error)
+    
+    return render_template('login.html')
 
 @app.route('/main_page', methods=['GET', 'POST'])
 def main_page():
-    if request.method == 'POST':
-        text = request.form.get('text')
-        filtered_text = filtering_GPT.filter_(text)
-        return render_template('main_page.html', output=filtered_text)
+
+    if 'email' in session:
+        if request.method == 'POST':
+            text = request.form('text')
+            if text == None:
+                text=' '
+            filtered_text = filtering_GPT.filter_(text)
+            return render_template('main_page.html', output=filtered_text)
+        
+        else:
+            return redirect('/login')
+        # else:
+        #     return redirect('/')
+    return redirect('/')
+    # if request.method == 'POST':
+    #     text = request.form.get('text')
+    #     filtered_text = filtering_GPT.filter_(text)
+    #     return render_template('main_page.html', output=filtered_text)
     
-    return render_template('main_page.html')
+    # return render_template('main_page.html')
 
 
 
