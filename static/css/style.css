@@ -47,6 +47,7 @@ input{
   color: white;
   font-size: 15px;
   transition: all 0.2s ease-in-out;
+  margin-top: 20px;
 }
 .loginb:hover{
   transform: scale(1.02);
@@ -85,4 +86,7 @@ input{
   color: rgb(163, 20, 20);
   font-size: 14px;
   
+}
+#passwordInput{
+  margin-top: 5px;
 }
