@@ -27,9 +27,9 @@
     /*background-color: #D9D9D9;*/
     background-color: #121111;
     cursor: pointer ;
-    height:150px;
+    height:250px;
    border-radius: 5px;
-   padding: 8px;
+   padding: 0.5px;
    box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.3);
    display: none;
    transition: all 0.2s ease-in-out;
@@ -182,7 +182,7 @@
 .buttons{
     position: absolute;
     /*right: 135px;*/
-    right: 135px;
+    right: 120px;
     margin-bottom: 20px;
     display: flex;
     gap:30px;

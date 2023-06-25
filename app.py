@@ -13,10 +13,7 @@ conn.commit()
 
 @app.route('/')
 def home():
-    if 'username' in session:
-        return redirect('/main_page')
-    else:
-        return redirect('/login')
+    return redirect('/login')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -44,18 +41,17 @@ def login():
 def main_page():
 
     if 'email' in session:
-        if request.method == 'POST':
-            text = request.form('text')
-            if text == None:
-                text=' '
-            filtered_text = filtering_GPT.filter_(text)
-            return render_template('main_page.html', output=filtered_text)
-        
-        else:
-            return redirect('/login')
+        text = request.form.get('text')
+        if text == None:
+            text=' '
+        filtered_text = filtering_GPT.filter_(text)
+        return render_template('main_page.html', output=filtered_text)
+    
+    else:
+        return redirect('/login')
         # else:
         #     return redirect('/')
-    return redirect('/')
+    # return redirect('/')
     # if request.method == 'POST':
     #     text = request.form.get('text')
     #     filtered_text = filtering_GPT.filter_(text)
@@ -67,4 +63,4 @@ def main_page():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=2000)
