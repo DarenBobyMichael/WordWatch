@@ -25,4 +25,6 @@ def filter_(message):
 			model="gpt-3.5-turbo", messages=messages
 		)
 	reply = chat.choices[0].message.content
+	if len(reply.split())>len(message.split())+5:
+		return 'Filteration is not possible'
 	return reply

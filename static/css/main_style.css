@@ -226,6 +226,7 @@ button{
     text-indent: 10px;
     text-align: left;
     margin-left:100px;
+    text-justify: auto;
 }
 .rightsidebar.show{
     display: block;

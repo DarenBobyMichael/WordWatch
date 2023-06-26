@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, session,url_for
 import filtering_GPT
 import sqlite3
+import hate_speech
+import re
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -39,28 +41,38 @@ def login():
 
 @app.route('/main_page', methods=['GET', 'POST'])
 def main_page():
-
     if 'email' in session:
-        text = request.form.get('text')
-        if text == None:
-            text=' '
-        filtered_text = filtering_GPT.filter_(text)
-        return render_template('main_page.html', output=filtered_text)
-    
-    else:
-        return redirect('/login')
-        # else:
-        #     return redirect('/')
-    # return redirect('/')
-    # if request.method == 'POST':
-    #     text = request.form.get('text')
-    #     filtered_text = filtering_GPT.filter_(text)
-    #     return render_template('main_page.html', output=filtered_text)
-    
-    # return render_template('main_page.html')
+        if request.method == 'POST':
+            text = request.form['text']
+            # option = request.form['option']
 
+            if text is None:
+                text = ''
+            if 'filter_button' in request.form:
+                filtered_text = filtering_GPT.filter_(text)
+                return render_template('main_page.html', output=filtered_text)
+            elif 'check_button' in request.form:
+                checked_text='\n'
+                text_list=[]
+                for i in text.splitlines():
+                    for j in re.split(r'\.\s?',i):
+                        if j !='':
+                            text_list.append(j)
+                for i in text_list:   
+                    detection = hate_speech.hatespeech(i)
+                    if detection == 0:
+                        checked_text+=i+' - Hate Speech not detected'+'\n'
+                    elif detection == 1:
+                        checked_text+=i+' - Hate speech detected'+'\n'
+                    
+                return render_template('main_page.html', output=checked_text)
+        
+        return render_template('main_page.html')
+    
+    return redirect('/login')
+        
 
 
 
 if __name__ == '__main__':
-    app.run(debug=True,port=2000)
+    app.run(debug=True,port=2500)

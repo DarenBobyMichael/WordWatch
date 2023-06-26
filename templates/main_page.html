@@ -63,14 +63,21 @@
             rows="10"
             cols="100"
             placeholder="Type something..."
+            required
           ></textarea>
 
           <div class="buttons">
-            <button class="check">Check</button>
-            <button type="submit" class="filter">Filter</button>
+            <button type="submit" class="check" name="check_button">
+              Check
+            </button>
+            <button type="submit" class="filter" name="filter_button">
+              Filter
+            </button>
           </div>
         </form>
-        <textarea class="output-box" rows="5">{{ output }}</textarea>
+        <textarea class="output-box" rows="5" readonly>
+{% if output %}{{ output }}{% endif %}</textarea
+        >
       </div>
     </main>
     <script src="../static/script/main_script.js"></script>

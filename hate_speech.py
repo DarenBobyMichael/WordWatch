@@ -8,9 +8,9 @@ def hatespeech(text):
     with open('vectorizer.pkl', 'rb') as file:
         cv = pickle.load(file)
 
-        i=input('Enter the text to be detected: ')
+        i=text
         i = cv.transform([i]).toarray()
         if loaded_model.predict(i)[0] == 1:
-            return 'Hate speech detected'
+            return 1
         else:
-            return 'Hate speech not detected'
+            return 0
