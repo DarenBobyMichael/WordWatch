@@ -195,7 +195,9 @@ button{
     border: none;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
 }
-
+.red-text{
+    color:red
+}
 .check{
     background-color: #D9D9D9;
     color: #635656;
@@ -252,6 +254,7 @@ button{
         right: 20px;
     }
 }
+
 /* Main page CSS*/
 @media(max-width:700px){
     .themain{

@@ -22,3 +22,21 @@ logoutButton.addEventListener("click", function() {
   console.log("aaa");
    window.location.href = "login";
 });
+
+const textarea = document.getElementById('typing-textarea');
+const text = textarea.value;
+const typingSpeed = 10; // Speed of typing in milliseconds
+
+textarea.value = ''; // Clear the textarea content
+
+let index = 0;
+
+function typeText() {
+  if (index < text.length) {
+    textarea.value += text.charAt(index);
+    index++;
+    setTimeout(typeText, typingSpeed);
+  }
+}
+
+typeText();

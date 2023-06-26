@@ -4,6 +4,8 @@ import sqlite3
 import hate_speech
 import re
 
+from text_cleaner import clean
+
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
@@ -53,13 +55,13 @@ def main_page():
                 return render_template('main_page.html', output=filtered_text)
             elif 'check_button' in request.form:
                 checked_text='\n'
-                text_list=[]
+                text_list=[]            
                 for i in text.splitlines():
                     for j in re.split(r'\.\s?',i):
                         if j !='':
                             text_list.append(j)
                 for i in text_list:   
-                    detection = hate_speech.hatespeech(i)
+                    detection = hate_speech.hatespeech(clean(i))
                     if detection == 0:
                         checked_text+=i+' - Hate Speech not detected'+'\n'
                     elif detection == 1:
