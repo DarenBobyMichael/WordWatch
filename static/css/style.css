@@ -5,7 +5,7 @@
   box-sizing: border-box;
   font-family: 'Bai Jamjuree', sans-serif;
 }
-.container{
+.container{        
   display: flex;
   justify-content: center;
   align-items: center;
