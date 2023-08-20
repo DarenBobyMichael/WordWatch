@@ -19,7 +19,7 @@ conn.commit()
 def home():
     return redirect('/login')
 
-
+ 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
